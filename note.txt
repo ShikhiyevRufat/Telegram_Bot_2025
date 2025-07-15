@@ -1,0 +1,14 @@
+1 - Clone Voice
+
+2 -  🎮 "Dostun Nə Qədər Səni Tanıyır?" Oyunu (Personal Quiz Bot)
+İstifadəçi öz suallarını yazır (məs: Sevdiyim rəng? Uşaqlıq ləqəbim?).
+Bot bir link yaradır və dostlarına göndərir.
+Cavablar gəldikcə istifadəçi baxır.
+Ən çox düzgün tapan "Winner" seçilir.
+
+3 - Paltar dəyişən Bot 
+
+4 - Netflix, Udemy, Youtube Premium, Spotify satisi
+
+5 - Sosial medialarin yuklenmesi
+
