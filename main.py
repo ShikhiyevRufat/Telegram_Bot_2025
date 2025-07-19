@@ -4,6 +4,7 @@ from utilities.help_func import help as help_func
 from utilities.language_func import language as lang
 from config import TOKEN, configure
 
+
 def main():
     configure()
 

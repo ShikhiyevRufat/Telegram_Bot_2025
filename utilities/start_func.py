@@ -4,6 +4,7 @@ from utilities.translations import translations
 from utilities.language_func import user_language
 
 
+
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     user_id = update.effective_chat.id
     lang = user_language.get(user_id, "en")
@@ -11,12 +12,12 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     menu = translations[lang]
     
     keyboard = [
-        [InlineKeyboardButton(menu["convert_image"], callback_data='convert_image')],
-        [InlineKeyboardButton(menu["convert_document"], callback_data='convert_document')],
-        [InlineKeyboardButton(menu["generate_qr"], callback_data='generate_qr')],
-        [InlineKeyboardButton(menu["tiktok_download"], callback_data='tiktok_download')],
-        [InlineKeyboardButton(menu["font_style"], callback_data='font_style')],
-        [InlineKeyboardButton(menu["bg_remove"], callback_data='bg_remove')],
+        [InlineKeyboardButton(menu["ai_tools"], callback_data='ai_tools')],
+        [InlineKeyboardButton(menu["file_functions"], callback_data='file_functions')],
+        [InlineKeyboardButton(menu["extra_features"], callback_data='extra_features')],
+        [InlineKeyboardButton(menu["games"], callback_data='games')],
+        [InlineKeyboardButton(menu["social_media"], callback_data='social_media')],
+        [InlineKeyboardButton(menu["subscriptions"], callback_data='subscriptions')],
     ]
 
     markup = InlineKeyboardMarkup(keyboard)
@@ -25,7 +26,7 @@ async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
         chat_id=update.effective_chat.id,
         text=f"{menu["welcome"]}",
         reply_markup=markup,
-        parse_mode='Markdown',
+        parse_mode='HTML',
         disable_web_page_preview=True  
     )
     
