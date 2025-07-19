@@ -15,7 +15,7 @@ async def language(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
-        text="Choose your language!",
+        text="🌐 Zəhmət olmasa dil seçin / Пожалуйста, выберите язык / Please choose your language:",
         reply_markup=markup,
         parse_mode='Markdown',
         disable_web_page_preview=True  

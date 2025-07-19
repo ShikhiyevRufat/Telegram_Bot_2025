@@ -1,4 +1,4 @@
-from lib.font_functions.font_style import Fonts
+from lib.extra_features.font_style import Fonts
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup
 class Main_Font:
     def generate_buttons(self):

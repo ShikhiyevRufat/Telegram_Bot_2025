@@ -1,6 +1,39 @@
 translations = {
         "az": {
-            "welcome": "👋 Xoş gəldiniz!\n🌟 İstifadə etmək istədiyiniz funksiyanı seçin və zövq alın!\n☕ Bizi buradan dəstəkləyin: [Buy me a coffee](https://buymeacoffee.com/rufatshikhiyev)",
+            "help_text": """
+🆘 <b>Yardım Bölməsi</b>
+
+📌 Bu bot sizə gündəlik işlərinizi asanlaşdırmaq üçün hazırlanıb. Aşağıdakı imkanlardan istifadə edə bilərsiniz:
+
+1. 🧠 <b>AI Alətlər</b>: Səs klonlama, şəkildən paltar dəyişmə və s.
+2. 📁 <b>Fayl Funksiyaları</b>: Şəkil və sənəd formatı dəyişmə, arxa fon silmə
+3. ✨ <b>Əlavə Xüsusiyyətlər</b>: Font dəyişmə, QR kod yaratma
+4. 🎮 <b>Dost Oyunu</b>: Dostun səni nə qədər tanıdığını öyrən
+5. 📲 <b>Sosial Media Yükləyici</b>: Instagram, TikTok və s.-dən video və post yüklə
+6. 💳 <b>Aylıq Abunəliklər</b>: Spotify, Netflix, YouTube Premium və s.
+
+💡 <b>İstifadə qaydası:</b>
+Sadəcə <code>/start</code> yaz və dilini seç. Sonra menyudan istədiyin funksiyanı seç və bot sənə kömək edəcək.
+
+💰 <b>Premium necə alınır?</b>
+Bəzi funksiyalar limitsiz deyil. Premium aktivləşdirmək üçün menyudan 💳 Aylıq Abunəliklər bölməsinə keç və təlimatlara əməl et.
+
+📞 <b>Əlaqə və dəstək:</b> <a href="https://t.me/RufatShikhiyev">Rüfət Şixiyev</a>
+
+📢 <b>Yeniliklər üçün kanalımızı izləyin:</b> <a href="https://t.me/+qSi_Aof9BXczNDBi">Bot News</a>
+""",
+            "welcome": """
+👋 Xoş gəldiniz!  
+🌟 İstifadə etmək istədiyiniz funksiyanı seçin və zövq alın!  
+ℹ️ Daha detallı məlumat üçün sadəcə <code>/help</code> yazmağınız kifayətdir  
+☕ Bizi buradan dəstəkləyin: <a href="https://buymeacoffee.com/rufatshikhiyev">Buy me a coffee</a>
+""",
+            "ai_tools": "🧠 AI Alətlər",
+            "file_functions": "📁 Fayl Funksiyaları",
+            "extra_features": "✨ Əlavə Xüsusiyyətlər",
+            "games": "🎮 Dostluq Oyunu",
+            "social_media": "📲 Sosial Media Yükləyici",
+            "subscriptions": "💳 Abunəliklər",
             "convert_image": "🖼️ Şəkil Formatını Dəyişdirin",
             "convert_document": "📄 Sənədləri PDF-ə Çevirin",
             "generate_qr": "📲 QR Kod Yaradın",
@@ -42,7 +75,40 @@ translations = {
             "bg_remove": "🖼️ Şəkilin arxa fonunu təmizləyin"
         },
         "en": {
-            "welcome": "👋 Welcome!\n🌟 Choose the feature you want to use and enjoy!\n☕ Support us here: [Buy me a coffee](https://buymeacoffee.com/rufatshikhiyev)",
+            "help_text": """
+🆘 <b>Help Section</b>
+
+📌 This bot is designed to simplify your daily tasks. You can use the following features:
+
+1. 🧠 <b>AI Tools</b>: Voice cloning, outfit changing from photos, and more.
+2. 📁 <b>File Tools</b>: Convert image and document formats, remove background.
+3. ✨ <b>Extra Features</b>: Change fonts, generate QR codes.
+4. 🎮 <b>Friend Game</b>: Test how well your friend knows you.
+5. 📲 <b>Social Media Downloader</b>: Download videos and posts from Instagram, TikTok, etc.
+6. 💳 <b>Monthly Subscriptions</b>: Spotify, Netflix, YouTube Premium, and more.
+
+💡 <b>How to use:</b>
+Just type <code>/start</code> and choose your language. Then select the desired feature from the menu, and the bot will guide you.
+
+💰 <b>How to get Premium?</b>
+Some features are limited. To unlock Premium, go to 💳 Monthly Subscriptions from the menu and follow the instructions.
+
+📞 <b>Support:</b> <a href="https://t.me/RufatShikhiyev">Rufat Shikhiyev</a>
+
+📢 <b>Follow our channel for updates:</b> <a href="https://t.me/+qSi_Aof9BXczNDBi">Bot News</a>
+""",
+            "welcome": """
+👋 Welcome!  
+🌟 Choose the feature you want to use and enjoy!  
+ℹ️ For more detailed information, just type <code>/help</code>  
+☕ Support us here: <a href="https://buymeacoffee.com/rufatshikhiyev">Buy me a coffee</a>
+""",
+            "ai_tools": "🧠 AI Tools",
+            "file_functions": "📁 File Tools",
+            "extra_features": "✨ Extra Features",
+            "games": "🎮 Friend Game",
+            "social_media": "📲 Social Media Downloader",
+            "subscriptions": "💳 Subscriptions",
             "convert_image": "🖼️ Convert Image Format",
             "convert_document": "📄 Convert Documents to PDF",
             "generate_qr": "📲 Generate QR Code",
@@ -84,11 +150,40 @@ translations = {
             "bg_remove": "🖼️ Remove image background"
         },
         "ru": {
-            "welcome": "👋 Добро пожаловать!\n🌟 Выберите функцию, которую хотите использовать, и наслаждайтесь!\n☕ Поддержите нас здесь: [Buy me a coffee](https://buymeacoffee.com/rufatshikhiyev)",
-            "convert_image": "🖼️ Конвертировать формат изображения",
-            "convert_document": "📄 Конвертировать документы в PDF",
-            "generate_qr": "📲 Генерировать QR код",
-            "tiktok_download": "🎵 Загрузка видео с TikTok",
+            "help_text": """
+🆘 <b>Раздел помощи</b>
+
+📌 Этот бот создан, чтобы упростить ваши повседневные задачи. Вы можете использовать следующие функции:
+
+1. 🧠 <b>AI Инструменты</b>: Клонирование голоса, замена одежды на фото и другое.
+2. 📁 <b>Файловые функции</b>: Конвертация изображений и документов, удаление фона.
+3. ✨ <b>Дополнительные функции</b>: Изменение шрифта, генерация QR-кода.
+4. 🎮 <b>Игра с другом</b>: Проверь, насколько хорошо тебя знает твой друг.
+5. 📲 <b>Загрузчик соцсетей</b>: Загрузка видео и постов из Instagram, TikTok и др.
+6. 💳 <b>Ежемесячные подписки</b>: Spotify, Netflix, YouTube Premium и другие.
+
+💡 <b>Как использовать:</b>
+Просто напишите <code>/start</code> и выберите язык. Затем выберите нужную функцию из меню, и бот поможет вам.
+
+💰 <b>Как получить Премиум?</b>
+Некоторые функции ограничены. Чтобы получить полный доступ, перейдите в 💳 Ежемесячные подписки и следуйте инструкциям.
+
+📞 <b>Поддержка:</b> <a href="https://t.me/RufatShikhiyev">Руфат Шихиев</a>
+
+📢 <b>Новости и обновления:</b> <a href="https://t.me/+qSi_Aof9BXczNDBi">Bot News</a>
+""",
+            "welcome": """
+👋 Добро пожаловать!  
+🌟 Выберите нужную функцию и наслаждайтесь!  
+ℹ️ Для получения более подробной информации просто введите <code>/help</code>  
+☕ Поддержите нас здесь: <a href="https://buymeacoffee.com/rufatshikhiyev">Buy me a coffee</a>
+""",
+            "ai_tools": "🧠 AI Инструменты",
+            "file_functions": "📁 Файловые функции",
+            "extra_features": "✨ Дополнительно",
+            "games": "🎮 Игра с другом",
+            "social_media": "📲 Загрузчик соцсетей",
+            "subscriptions": "💳 Подписки",
             "youtube_download": "📷 Загрузка YouTube MP3 или MP4",
             "please_image_upload": "Пожалуйста, загрузите изображение 🖼️",
             "please_document_upload": "Пожалуйста, загрузите документ для конвертации в PDF 📄",
