@@ -1,30 +1,29 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from utilities.context_helper import UserContext
 from telegram.ext import ContextTypes
 from utilities.translations import translations
 from utilities.language_func import user_language
 
 
-
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
-    user_id = update.effective_chat.id
-    lang = user_language.get(user_id, "en")
-
-    menu = translations[lang]
+    ctx = UserContext(update, context)
+    await ctx.query.answer()
     
     keyboard = [
-        [InlineKeyboardButton(menu["ai_tools"], callback_data='ai_tools')],
-        [InlineKeyboardButton(menu["file_functions"], callback_data='file_functions')],
-        [InlineKeyboardButton(menu["extra_features"], callback_data='extra_features')],
-        [InlineKeyboardButton(menu["games"], callback_data='games')],
-        [InlineKeyboardButton(menu["social_media"], callback_data='social_media')],
-        [InlineKeyboardButton(menu["subscriptions"], callback_data='subscriptions')],
+        [InlineKeyboardButton(ctx.menu["ai_tools"], callback_data='ai_tools')],
+        [InlineKeyboardButton(ctx.menu["file_functions"], callback_data='file_functions')],
+        [InlineKeyboardButton(ctx.menu["extra_features"], callback_data='extra_features')],
+        [InlineKeyboardButton(ctx.menu["games"], callback_data='games')],
+        [InlineKeyboardButton(ctx.menu["social_media"], callback_data='social_media')],
+        [InlineKeyboardButton(ctx.menu["subscriptions"], callback_data='subscriptions')],
     ]
 
     markup = InlineKeyboardMarkup(keyboard)
+    user_first_name = update.effective_user.first_name
 
     await context.bot.send_message(
         chat_id=update.effective_chat.id,
-        text=f"{menu["welcome"]}",
+        text=ctx.menu["welcome"].format(name=user_first_name),
         reply_markup=markup,
         parse_mode='HTML',
         disable_web_page_preview=True  
