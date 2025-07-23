@@ -23,7 +23,7 @@ Bəzi funksiyalar limitsiz deyil. Premium aktivləşdirmək üçün menyudan �
 📢 <b>Yeniliklər üçün kanalımızı izləyin:</b> <a href="https://t.me/+qSi_Aof9BXczNDBi">Bot News</a>
 """,
             "welcome": """
-👋 Xoş gəldiniz!  
+👋 Xoş gəldin {name} 
 🌟 İstifadə etmək istədiyiniz funksiyanı seçin və zövq alın!  
 ℹ️ Daha detallı məlumat üçün sadəcə <code>/help</code> yazmağınız kifayətdir  
 ☕ Bizi buradan dəstəkləyin: <a href="https://buymeacoffee.com/rufatshikhiyev">Buy me a coffee</a>
@@ -36,6 +36,7 @@ Bəzi funksiyalar limitsiz deyil. Premium aktivləşdirmək üçün menyudan �
             "subscriptions": "💳 Abunəliklər",
             "convert_image": "🖼️ Şəkil Formatını Dəyişdirin",
             "convert_document": "📄 Sənədləri PDF-ə Çevirin",
+            "choose_your_function": "📁 Funksiyanı seç və nəticənin dadını çıxar!",
             "generate_qr": "📲 QR Kod Yaradın",
             "tiktok_download": "🎵 TikTok Videosunu Yükləyin",
             "youtube_download": "📷 YouTube MP3 və ya MP4 Yükləmə",
@@ -72,7 +73,8 @@ Bəzi funksiyalar limitsiz deyil. Premium aktivləşdirmək üçün menyudan �
             "font_style": "🖌 Mənt fontunu dəyiş",
             "pls_write_message": "Zəhmət olmasa mətni qeyd edin (Sadəcə İngilis dili hərflərini dəstəkləyir)🖋",
             "font_success": "🥳 Mətn fontu uğurla dəyişdirildi!",
-            "bg_remove": "🖼️ Şəkilin arxa fonunu təmizləyin"
+            "bg_remove": "🖼️ Şəkilin arxa fonunu təmizləyin",
+            "back_to_menu": "🔙 Geri"
         },
         "en": {
             "help_text": """
@@ -98,7 +100,7 @@ Some features are limited. To unlock Premium, go to 💳 Monthly Subscriptions f
 📢 <b>Follow our channel for updates:</b> <a href="https://t.me/+qSi_Aof9BXczNDBi">Bot News</a>
 """,
             "welcome": """
-👋 Welcome!  
+👋 Welcome {name}  
 🌟 Choose the feature you want to use and enjoy!  
 ℹ️ For more detailed information, just type <code>/help</code>  
 ☕ Support us here: <a href="https://buymeacoffee.com/rufatshikhiyev">Buy me a coffee</a>
@@ -111,6 +113,7 @@ Some features are limited. To unlock Premium, go to 💳 Monthly Subscriptions f
             "subscriptions": "💳 Subscriptions",
             "convert_image": "🖼️ Convert Image Format",
             "convert_document": "📄 Convert Documents to PDF",
+            "choose_your_function": "📁 Select a function and let the magic happen!",
             "generate_qr": "📲 Generate QR Code",
             "tiktok_download": "🎵 Tiktok Reel Download",
             "youtube_download": "📷 YouTube MP3 or MP4 Download",
@@ -147,7 +150,8 @@ Some features are limited. To unlock Premium, go to 💳 Monthly Subscriptions f
             "font_style": "✒ Change font style",
             "pls_write_message": "Please write your message (Only English fonts are supported)🖋",
             "font_success": "🥳 Text font changed successfuly!",
-            "bg_remove": "🖼️ Remove image background"
+            "bg_remove": "🖼️ Remove image background",
+            "back_to_menu": "🔙 Back"
         },
         "ru": {
             "help_text": """
@@ -173,7 +177,7 @@ Some features are limited. To unlock Premium, go to 💳 Monthly Subscriptions f
 📢 <b>Новости и обновления:</b> <a href="https://t.me/+qSi_Aof9BXczNDBi">Bot News</a>
 """,
             "welcome": """
-👋 Добро пожаловать!  
+👋 Добро пожаловать {name}  
 🌟 Выберите нужную функцию и наслаждайтесь!  
 ℹ️ Для получения более подробной информации просто введите <code>/help</code>  
 ☕ Поддержите нас здесь: <a href="https://buymeacoffee.com/rufatshikhiyev">Buy me a coffee</a>
@@ -184,6 +188,7 @@ Some features are limited. To unlock Premium, go to 💳 Monthly Subscriptions f
             "games": "🎮 Игра с другом",
             "social_media": "📲 Загрузчик соцсетей",
             "subscriptions": "💳 Подписки",
+            "choose_your_function": "📁 Выбери функцию и наслаждайся результатом!",
             "youtube_download": "📷 Загрузка YouTube MP3 или MP4",
             "please_image_upload": "Пожалуйста, загрузите изображение 🖼️",
             "please_document_upload": "Пожалуйста, загрузите документ для конвертации в PDF 📄",
@@ -218,6 +223,7 @@ Some features are limited. To unlock Premium, go to 💳 Monthly Subscriptions f
             "font_style": "✒ Изменить стиль шрифта",
             "pls_write_message": "Пожалуйста, напишите свое сообщение (Просто поддерживает буквы английского языка)🖋",
             "font_success": "🥳 Текстовый шрифт изменил успешный!",
-            "bg_remove": "🖼️ Удалить фон изображения"
+            "bg_remove": "🖼️ Удалить фон изображения",
+            "back_to_menu": "🔙 Назад"
         },
     }

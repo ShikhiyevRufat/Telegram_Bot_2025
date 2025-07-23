@@ -13,7 +13,7 @@ from lib.file_functions.image_convertor import convert_image
 from lib.social_functions.tiktok_downloander import download_tiktok
 from utilities.start_func import start as start_func, success_start
 from lib.file_functions.document_convertor import document_convertor
-from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
+from telegram import Update, InlineKeyboardMarkup
 
 user_state = {}
 user_images = {}
@@ -32,25 +32,39 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
     if ctx.query.data == 'file_functions':
         user_state[ctx.query.from_user.id] = 'file_functions'
 
-        keyboard = InlineKeyboard.file_functions()
+        keyboard = await InlineKeyboard.file_functions(update, context)
         markup = InlineKeyboardMarkup(keyboard)
 
         await ctx.query.edit_message_text(
-            text="Choose file function",
+            text=ctx.menu['choose_your_function'],
             reply_markup=markup
         )
 
+    elif ctx.query.data == 'extra_features':
+        user_state[ctx.query.from_user.id] = 'extra_features'
+
+        keyboard = await InlineKeyboard.extra_features(update, context)
+        markup = InlineKeyboardMarkup(keyboard)
+
+        await ctx.query.edit_message_text(
+            text=ctx.menu['choose_your_function'],
+            reply_markup=markup
+        )
+    elif ctx.query.data == "go_back":
+        user_state[ctx.query.from_user.id] = 'go_back'
+        await start_func(update, context)
+
     elif ctx.query.data == 'convert_image':
         user_state[ctx.query.from_user.id] = 'awaiting_image_upload'
-        await ctx.query.edit_message_text(f"{ctx.menu["please_image_upload"]}")
+        await ctx.query.edit_message_text(ctx.menu["please_image_upload"])
 
     elif ctx.query.data == 'bg_remove':
         user_state[ctx.query.from_user.id] = 'bg_remove'
-        await ctx.query.edit_message_text(f"{ctx.menu["please_image_upload"]}") 
+        await ctx.query.edit_message_text(ctx.menu["please_image_upload"]) 
 
     elif ctx.query.data == 'convert_document':
         user_state[ctx.query.from_user.id] = 'awaiting_document_upload'
-        await ctx.query.edit_message_text(f"{ctx.menu["please_document_upload"]}")
+        await ctx.query.edit_message_text(ctx.menu["please_document_upload"])
 
     elif ctx.query.data == 'start':
         user_state[ctx.query.from_user.id] = 'starts'
@@ -61,15 +75,15 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
 
     elif ctx.query.data == 'generate_qr':
         user_state[ctx.query.from_user.id] = 'awaiting_qr_input'
-        await ctx.query.edit_message_text(f"{ctx.menu["please_enter_qr"]}")
+        await ctx.query.edit_message_text(ctx.menu["please_enter_qr"])
 
     elif ctx.query.data == 'tiktok_download':
         user_state[ctx.query.from_user.id] = 'awaiting_tiktok_url'
-        await ctx.query.edit_message_text(f"{ctx.menu["please_send_tiktok"]}")
+        await ctx.query.edit_message_text(ctx.menu["please_send_tiktok"])
 
     elif ctx.query.data == 'font_style':
         user_state[ctx.query.from_user.id] = 'font_style'
-        await ctx.query.edit_message_text(f"{ctx.menu["pls_write_message"]}")    
+        await ctx.query.edit_message_text(ctx.menu["pls_write_message"])    
     
     elif ctx.query.data.startswith('format_'):
         await handle_format_selection(update, context)
@@ -87,7 +101,7 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
         if original_message:
             styled_message = main_font.handle_style(style, original_message)
             await ctx.query.edit_message_text(styled_message)
-            await ctx.query.message.reply_text(f"{ctx.menu["font_success"]}", reply_markup=success_start(update, context))
+            await ctx.query.message.reply_text(ctx.menu["font_success"], reply_markup=success_start(update, context))
             del user_state[ctx.query.from_user.id]
         else:
             await ctx.query.edit_message_text("Please write a message first!",)
@@ -139,7 +153,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
     if user_state.get(ctx.user_id) == 'awaiting_tiktok_url':
         url = update.message.text
-        await update.message.reply_text(f"{ctx.menu["tiktok_download_video"]}")
+        await update.message.reply_text(ctx.menu["tiktok_download_video"])
 
         output_filename = 'tiktok_video.mp4'
         target_resolution = '720p'  
@@ -149,18 +163,18 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
             with open(output_filename, 'rb') as video_file:
                 await context.bot.send_video(chat_id=update.effective_chat.id, video=video_file)
             os.remove(output_filename)  
-            await update.message.reply_text(f"{ctx.menu["download_success"]}",reply_markup=success_start(update, context))
+            await update.message.reply_text(ctx.menu["download_success"],reply_markup=success_start(update, context))
         except Exception as e:
-            await update.message.reply_text(f"{ctx.menu["error_video"]}",reply_markup=success_start(update, context))
+            await update.message.reply_text(ctx.menu["error_video"],reply_markup=success_start(update, context))
         user_state[ctx.user_id] = None
 
     if user_state.get(ctx.user_id) == 'awaiting_qr_input':
         text = update.message.text
         try:
             qr_code = qr_generate(text)
-            await update.message.reply_photo(photo=qr_code, caption=f"{ctx.menu["download_success"]}",reply_markup=success_start(update, context)) 
+            await update.message.reply_photo(photo=qr_code, caption=ctx.menu["download_success"],reply_markup=success_start(update, context)) 
         except Exception as e:
-            await update.message.reply_text(f"{ctx.menu["error_qr"]}",reply_markup=success_start(update, context))
+            await update.message.reply_text(ctx.menu["error_qr"],reply_markup=success_start(update, context))
 
     elif user_state.get(ctx.user_id) == 'bg_remove':
         if update.message.photo:
@@ -170,12 +184,12 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
             try:
                 output_buffer = process_image(photo)
 
-                await update.message.reply_document(document=output_buffer, caption=f"{ctx.menu["download_success"]}", filename="output_image.png", reply_markup=success_start(update, context))
+                await update.message.reply_document(document=output_buffer, caption=ctx.menu["download_success"], filename="output_image.png", reply_markup=success_start(update, context))
 
             except Exception as e:
-                await update.message.reply_text(f"{ctx.menu["error_image"]}")
+                await update.message.reply_text(ctx.menu["error_image"])
         else:
-            await update.message.reply_text(f"{ctx.menu["error_upload_image"]}")
+            await update.message.reply_text(ctx.menu["error_upload_image"])
 
     elif user_state.get(ctx.user_id) == 'awaiting_image_upload':
         if update.message.photo:
@@ -188,12 +202,12 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
             markup = InlineKeyboardMarkup(keyboard)
             await update.message.reply_text(
-                f"{ctx.menu["choose_image_format"]}",
+                ctx.menu["choose_image_format"],
                 reply_markup=markup
             )
             user_state[ctx.user_id] = 'awaiting_format_selection'
         else:
-            await update.message.reply_text(f"{ctx.menu["error_upload_image"]}",reply_markup=success_start(update, context))
+            await update.message.reply_text(ctx.menu["error_upload_image"],reply_markup=success_start(update, context))
 
     if user_state.get(ctx.user_id) == 'awaiting_document_upload':
         if update.message.document:
@@ -202,7 +216,7 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
             user_documents[ctx.user_id] = document_bytes
 
-            await update.message.reply_text(f"{ctx.menu['converting_document']}")
+            await update.message.reply_text(ctx.menu['converting_document'])
 
             try:
                 input_file_path = 'uploaded_document' + os.path.splitext(update.message.document.file_name)[1]
@@ -218,25 +232,25 @@ async def handle_message(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
 
                 os.remove(input_file_path)
                 os.remove(output_file_path)
-                await update.message.reply_text(f"{ctx.menu['download_success']}", reply_markup=success_start(update, context))
+                await update.message.reply_text(ctx.menu['download_success'], reply_markup=success_start(update, context))
             except FileNotFoundError:
                 await update.message.reply_text(
-                    f"{ctx.menu['error_format_document']}", reply_markup=success_start(update, context)
+                    ctx.menu['error_format_document'], reply_markup=success_start(update, context)
                 )
             except Exception as e:
-                await update.message.reply_text(f"{ctx.menu['error_document']}",reply_markup=success_start(update, context))
+                await update.message.reply_text(ctx.menu['error_document'],reply_markup=success_start(update, context))
 
             user_state[ctx.user_id] = None
             user_documents.pop(ctx.user_id, None)
         else:
-            await update.message.reply_text(f"{ctx.menu['error_upload_document']}",reply_markup=success_start(update, context))
+            await update.message.reply_text(ctx.menu['error_upload_document'],reply_markup=success_start(update, context))
 
 async def handle_format_selection(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     ctx = UserContext(update, context)
     await ctx.query.answer()
 
     if user_state.get(ctx.user_id) == 'awaiting_format_selection' and ctx.user_id in user_images:
-        await ctx.query.edit_message_text(f"{ctx.menu["please_wait_image"]}")
+        await ctx.query.edit_message_text(ctx.menu["please_wait_image"])
 
         input_image = BytesIO(user_images[ctx.user_id])
         output_format = ctx.query.data.split('_')[1]
@@ -249,7 +263,7 @@ async def handle_format_selection(update: Update, context: ContextTypes.DEFAULT_
             output_image.seek(0)
             await context.bot.send_document(chat_id=ctx.query.message.chat_id, document=output_image,
                                             filename=f"converted.{output_format}")
-        await ctx.query.edit_message_text(f"{ctx.menu["download_success"]}",reply_markup=success_start(update, context))
+        await ctx.query.edit_message_text(ctx.menu["download_success"],reply_markup=success_start(update, context))
 
         user_state[ctx.user_id] = None
         user_images.pop(ctx.user_id, None)
