@@ -2,11 +2,10 @@ from telegram.ext import Application, MessageHandler, filters, CallbackQueryHand
 from bot_system import button_callback, handle_message
 from utilities.help_func import help as help_func
 from utilities.language_func import language as lang
-from config import TOKEN, configure
+from config import TOKEN
 
 
 def main():
-    configure()
 
     application = Application.builder().token(TOKEN).read_timeout(300).build()
 

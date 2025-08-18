@@ -50,3 +50,15 @@ class InlineKeyboard:
         ]
 
         return keyboard
+    
+    async def friend_games(update: Update, context: ContextTypes.DEFAULT_TYPE):
+        ctx = UserContext(update, context)
+        await ctx.query.answer()
+
+        keyboard = [
+            [InlineKeyboardButton(ctx.menu['best_friend'], callback_data='best_friend')],
+            [InlineKeyboardButton(ctx.menu['true_false'], callback_data='true_false')],
+            *back_button(label=ctx.menu['back_to_menu'], callback_data="start")
+        ]
+
+        return keyboard
