@@ -62,3 +62,16 @@ class InlineKeyboard:
         ]
 
         return keyboard
+    
+    async def social_media(update: Update, context: ContextTypes.DEFAULT_TYPE):
+        ctx = UserContext(update, context)
+        await ctx.query.answer()
+
+        keyboard = [
+            [InlineKeyboardButton(ctx.menu['instagram'], callback_data='instagram')],
+            [InlineKeyboardButton(ctx.menu['tiktok_download'], callback_data='tik-tok')],
+            *back_button(label=ctx.menu['back_to_menu'], callback_data="start")
+        ]
+
+        return keyboard
+    

@@ -50,6 +50,18 @@ async def button_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) ->
             text=ctx.menu['choose_your_function'],
             reply_markup=markup
         )
+
+    elif ctx.query.data == 'social_media':
+        user_state[ctx.query.from_user.id] = 'social_media'
+
+        keyboard = await InlineKeyboard.social_media(update, context)
+        markup = InlineKeyboardMarkup(keyboard)
+
+        await ctx.query.edit_message_text(
+            text=ctx.menu['choose_your_function'],
+            reply_markup=markup
+        )
+
     elif ctx.query.data == 'games':
         user_state[ctx.query.from_user.id] = 'games'
 
